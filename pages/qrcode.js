@@ -2,7 +2,7 @@ import Head from "next/head"
 import QRCode from "qrcode"
 import { useState } from "react"
 import Navbar from "../components/Navbar"
-import { FiPrinter } from 'react-icons/fi'
+import { FiPrinter, FiDownloadCloud } from 'react-icons/fi'
 import { BsGearFill } from 'react-icons/bs'
 
 export default function Qrcode() {
@@ -65,7 +65,8 @@ export default function Qrcode() {
           {url != "" ? (
             <div className="w-full p-2 text-center">
               <img src={url} className="w-full mb-2" />
-              <button onClick={() => window.print()} className="print:hidden text-base bg-slate-800 text-white rounded p-2"><FiPrinter className='inline-block mr-1' /> Print QR-Code</button>
+              <button onClick={() => window.print()} className="print:hidden text-base bg-slate-800 text-white rounded p-2 mr-2"><FiPrinter className='inline-block mr-1' /> Print</button>
+              <a href={url} download className="print:hidden text-base bg-slate-800 text-white rounded p-2"><FiDownloadCloud className='inline-block mr-1' /> Download</a>
             </div>
           ) : (
             "Qrcode Here"
